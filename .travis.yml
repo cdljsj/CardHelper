@@ -1,15 +1,28 @@
 language: android
 sudo: false
 jdk: oraclejdk8
+
 android:
   components:
-  - build-tools-23.0.2
-  - android-22
+  - build-tools-25.0.0
+  - android-25
   - extra-android-m2repository
   - extra-android-support
+
+licenses:
+ - android-sdk-preview-license-.+
+ - android-sdk-license-.+
+ - google-gdk-license-.+
+
 script:
-# - ./gradlew assembleRelease
+- ./gradlew assembleRelease
+
 before_install:
+- rvm install 2.2.0 --disable-binary
+- rvm use ruby-2.2.0 --default
+- gem install fir-cli
 - openssl aes-256-cbc -K $encrypted_33ee19960fe4_key -iv $encrypted_33ee19960fe4_iv
   -in xifan.jks.enc -out ./xifan.jks -d
-- ls
+
+after_deploy:
+- fir p app/build/outputs/apk/app-release.apk -T $FIR_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"

@@ -4,8 +4,8 @@ apply plugin: 'com.zeroturnaround.jrebel.android'
 // This does not break the build when Android Studio is missing the JRebel for Android plugin.
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
 
     defaultConfig {
         applicationId "com.troy.cardhelper"
