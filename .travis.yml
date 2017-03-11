@@ -12,8 +12,8 @@ android:
     - extra-android-support
     - extra-android-m2repository
 
-before_script:
-  android-update-sdk --components=build-tools-25.0.0
+# before_script:
+#   android-update-sdk --components=build-tools-25.0.0
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 cache:

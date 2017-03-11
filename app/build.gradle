@@ -25,6 +25,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    compile project(':android-volley')
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'org.immutables:gson:2.1.9'
     compile files('libs/expressionJ.jar')
